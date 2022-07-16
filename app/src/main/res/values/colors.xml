@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Golden_Theme">#B8FFD700</color>
+    <color name="Golden_assistant">#978526</color>
 </resources>

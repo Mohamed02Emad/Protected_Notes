@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:hint="@string/search_in_settings"
-        android:textColor="@color/white"
+        android:textColor="?attr/textTheme"
         android:textColorHint="#CBB2AEAE"
         android:textSize="14sp"
         app:layout_constraintLeft_toRightOf="@id/search_bar_Settings_icon"
@@ -22,6 +22,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:padding="4dp"
+        android:background="#8BFFFFFF"
         android:id="@+id/search_bar_Settings_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,7 +58,7 @@
                 android:layout_weight="8"
                 android:padding="4dp"
                 android:text="@string/dark_mode"
-                android:textColor="@color/white"
+                android:textColor="?attr/textTheme"
                 android:textSize="14sp" />
 
             <Switch
@@ -88,7 +90,7 @@
             android:layout_marginBottom="10dp"
             android:padding="4dp"
             android:text="@string/language"
-            android:textColor="@color/white"
+            android:textColor="?attr/textTheme"
             android:textSize="14sp" />
 
         <View
@@ -104,8 +106,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView                android:layout_gravity="center_vertical"
-
+            <TextView
+                android:layout_gravity="center_vertical"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="80dp"
@@ -113,7 +115,7 @@
                 android:layout_weight="8"
                 android:padding="4dp"
                 android:text="@string/remove_ads"
-                android:textColor="@color/white"
+                android:textColor="?attr/textTheme"
                 android:textSize="14sp" />
 
             <Switch
@@ -150,7 +152,7 @@
                 android:layout_weight="8"
                 android:padding="4dp"
                 android:text="@string/notifications"
-                android:textColor="@color/white"
+                android:textColor="?attr/textTheme"
                 android:textSize="14sp" />
 
             <Switch
@@ -184,7 +186,7 @@
                 android:layout_weight="8"
                 android:padding="4dp"
                 android:text="@string/sounds"
-                android:textColor="@color/white"
+                android:textColor="?attr/textTheme"
                 android:textSize="14sp"
                 android:layout_gravity="center_vertical"
                 />
@@ -220,7 +222,7 @@
                 android:layout_weight="8"
                 android:padding="4dp"
                 android:text="@string/keep_screen_on"
-                android:textColor="@color/white"
+                android:textColor="?attr/textTheme"
                 android:textSize="14sp"
                 android:layout_gravity="center_vertical"
                 />
@@ -250,7 +252,7 @@
             android:layout_marginBottom="10dp"
             android:padding="4dp"
             android:text="@string/rate_us"
-            android:textColor="@color/white"
+            android:textColor="?attr/textTheme"
             android:textSize="14sp"
             android:layout_gravity="center_vertical"
 
