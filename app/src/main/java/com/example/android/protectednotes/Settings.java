@@ -1,12 +1,11 @@
 package com.example.android.protectednotes;
 
-import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -22,7 +21,7 @@ import android.widget.Switch;
  * create an instance of this fragment.
  */
 public class Settings extends Fragment {
-    MainActivity mainActivity = new MainActivity();
+    MediaPlayer ClickSound;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,8 +61,6 @@ public class Settings extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
 
@@ -72,22 +69,36 @@ public class Settings extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-
         return inflater.inflate(R.layout.fragment_settings, container, false);
     }
+
+
+
+
+
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ClickSound = MediaPlayer.create(getActivity(),R.raw.click);
+
+
+
+
         //Dark Mode
         Switch sw =view.findViewById(R.id.DarkMode);
-        sw.setChecked(true);
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(MainActivity.SoundON) ClickSound.start();
+
                 if(b){
+
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 }else{
+
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
             }
@@ -98,14 +109,35 @@ public class Settings extends Fragment {
         screenOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b)
-                    getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-                else
-                  getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                if(MainActivity.SoundON)ClickSound.start();
 
+                if(b){
+                    getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);}
+                else {
+                    getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                }
 
             }
         });
+
+
+        //Sound On/Off
+       Switch SoundMode=view.findViewById(R.id.Sound_Switch);
+       SoundMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+               if (SoundMode.isChecked()) {
+                   ClickSound.start();
+                   SoundMode.setChecked(true);
+                   MainActivity.SoundON=true;
+               } else {
+                   SoundMode.setChecked(false);
+                   MainActivity.SoundON=false;
+               }
+           }
+       });
+
+
 
     }
 }
