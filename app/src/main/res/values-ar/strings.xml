@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Protected Notes</string>
+    <string name="nav_header_title">القراءة غذاء الروح</string>
+    <string name="action_settings">الاعدادات</string>
+    <string name="menu_home">الرئيسية</string>
+    <string name="settings">الاعدادات</string>
+    <string name="dark_mode">الوضع المظلم</string>
+    <string name="search_in_settings">البحث في الاعدادات</string>
+    <string name="language">اللغة</string>
+    <string name="remove_ads">منع الاعلانات</string>
+    <string name="notifications">الاشعارات</string>
+    <string name="sounds">الاصوات</string>
+    <string name="keep_screen_on">ابقاء الشاشة في وضع التشغيل</string>
+    <string name="rate_us">قيمنا</string>
+</resources>
