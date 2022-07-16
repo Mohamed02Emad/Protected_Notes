@@ -3,7 +3,7 @@
     <style name="Theme.ProtectedNotes" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
 
-        <item name="colorPrimary">@color/Golden_Theme</item>
+        <item name="colorPrimary">#B8C3A606</item>
         <item name="colorPrimaryVariant">@color/purple_200</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -11,9 +11,15 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#4ED09C19</item>
         <!-- Customize your theme here. -->
+        <item name="golden1">#B8967F02</item>
+        <item name="golden2">#918335</item>
+        <item name="golden3">#6A5E1B</item>
         <item name="textTheme">#ffffff</item>
+        <item name="line">#4ED09C19</item>
+        <item name="trackkk">@color/Golden_Theme</item>
+        <item name="android:navigationBarColor">#4ED09C19</item>
     </style>
 
 

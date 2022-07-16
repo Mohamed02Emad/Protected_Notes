@@ -2,5 +2,10 @@
 <resources>
     <declare-styleable name="txtcolor">
         <attr name="textTheme" format="color"/>
+        <attr name="golden1"   format="color"/>
+        <attr name="golden2"   format="color"/>
+        <attr name="golden3"   format="color"/>
+        <attr name="line"      format="color"/>
+        <attr name="trackkk"     format="color"/>
     </declare-styleable>
 </resources>

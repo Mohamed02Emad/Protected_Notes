@@ -3,15 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/golden_shape.xml" value="0.1705" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/switchbutton.xml" value="0.1705" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/thumb.xml" value="0.1705" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/track.xml" value="0.1705" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/track2.xml" value="0.1705" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/layout/activity_main.xml" value="0.19270833333333334" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/layout/activity_settings2.xml" value="0.1" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/layout/app_bar_main.xml" value="0.19270833333333334" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/layout/content_main.xml" value="0.19270833333333334" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/layout/fragment_settings.xml" value="0.19270833333333334" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/layout/fragment_to_do.xml" value="0.19270833333333334" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/layout/nav_header_main.xml" value="0.19270833333333334" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/layout/settings.xml" value="0.19270833333333334" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/menu/activity_main_drawer.xml" value="0.19270833333333334" />
       </map>

@@ -13,6 +13,11 @@
         <item name="android:statusBarColor" tools:targetApi="l">#7DFADB35</item>
         <!-- Customize your theme here. -->
         <item name="textTheme">#000000</item>
+        <item name="golden1">@color/Golden_Theme</item>
+        <item name="golden2">#918335</item>
+        <item name="golden3">#6A5E1B</item>
+        <item name="line">#A2D0A12A</item>
+        <item name="trackkk">@color/Golden_Theme</item>
         <item name="android:navigationBarColor">#978526</item>
     </style>
 

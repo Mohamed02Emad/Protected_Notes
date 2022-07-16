@@ -79,7 +79,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="10dp"
-            android:background="#C71C4EB2" />
+            android:background="?attr/line" />
 
 
         <TextView
@@ -98,7 +98,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="10dp"
-            android:background="#C71C4EB2" />
+            android:background="?attr/line" />
 
 
         <LinearLayout
@@ -126,7 +126,9 @@
                 android:layout_marginEnd="8dp"
                 android:padding="6dp"
                 android:showText="false"
-                tools:checked="false" />
+                tools:checked="false"
+                android:thumb="@drawable/thumbbb"
+                android:track="@drawable/track2"/>
         </LinearLayout>
 
         <View
@@ -135,7 +137,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="22dp"
-            android:background="#C72664DF" />
+            android:background="?attr/line" />
 
 
         <LinearLayout
@@ -163,7 +165,9 @@
                 android:padding="6dp"
                 android:showText="false"
                 android:theme="@style/Platform.MaterialComponents"
-                tools:checked="false" />
+                tools:checked="false"
+                android:thumb="@drawable/thumbbb"
+                android:track="@drawable/track2"/>
         </LinearLayout>
 
         <View
@@ -171,7 +175,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="10dp"
-            android:background="#C72664DF" />
+            android:background="?attr/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -199,7 +203,9 @@
                 android:padding="6dp"
                 android:showText="false"
                 android:theme="@style/Platform.MaterialComponents"
-                tools:checked="false" />
+                tools:checked="false"
+                android:thumb="@drawable/thumbbb"
+                android:track="@drawable/track2"/>
         </LinearLayout>
 
         <View
@@ -207,7 +213,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="10dp"
-            android:background="#C71C4EB2" />
+            android:background="?attr/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -235,7 +241,9 @@
                 android:padding="6dp"
                 android:showText="false"
                 android:theme="@style/Platform.MaterialComponents"
-                tools:checked="false" />
+                tools:checked="false"
+                android:thumb="@drawable/thumbbb"
+                android:track="@drawable/track2"/>
         </LinearLayout>
 
         <View
@@ -243,7 +251,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="10dp"
-            android:background="#C71C4EB2" />
+            android:background="?attr/line" />
 
         <TextView
             android:id="@+id/RateUs_Button"
@@ -263,7 +271,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="10dp"
-            android:background="#C71C4EB2" />
+            android:background="?attr/line" />
 
 
     </LinearLayout>
