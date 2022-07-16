@@ -14,11 +14,11 @@
     <fragment
         android:id="@+id/nav_Settings"
         android:name="com.example.android.protectednotes.Settings"
-        android:label="fragment_settings"
+        android:label="Settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/to_do"
         android:name="com.example.android.protectednotes.to_do"
-        android:label="fragment_to_do"
+        android:label="To Do List"
         tools:layout="@layout/fragment_to_do" />
 </navigation>
