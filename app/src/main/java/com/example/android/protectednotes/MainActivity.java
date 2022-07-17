@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     public static  boolean SoundON =true;
-    static Boolean DarkMode,Sounds,Screen;
+    static Boolean DarkMode,Sounds,Screen,notifications,removeAds;
 
 
     @Override
@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         } else{
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
+//TODO: remmove ads and notifications
+
 
     }
 
@@ -77,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
         DarkMode=sp.getBoolean("Dark",true);
         Screen=sp.getBoolean("ScreenOn",false);
         Sounds=sp.getBoolean("Sounds",true);
+        notifications=sp.getBoolean("Notification",true);
+        removeAds=sp.getBoolean("REMOVEads",false);
 
     }
 

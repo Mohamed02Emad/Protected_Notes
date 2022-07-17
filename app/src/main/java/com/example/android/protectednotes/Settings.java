@@ -1,5 +1,6 @@
 package com.example.android.protectednotes;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -62,9 +63,7 @@ public class Settings extends Fragment {
 
 
     SharedPreferences Settings_Modes;
-  public   Switch SoundMode;
-  public   Switch sw;
-  public   Switch  screenOn;
+  public   Switch SoundMode,sw,screenOn,RemoveAds,Notifications;
 
 
     @Override
@@ -75,6 +74,9 @@ public class Settings extends Fragment {
         sw =view.findViewById(R.id.DarkMode);
         screenOn = view.findViewById(R.id.ScreenOn_Switch);
         SoundMode=view.findViewById(R.id.Sound_Switch);
+        RemoveAds=view.findViewById(R.id.RemoveAds_Switch);
+        Notifications=view.findViewById(R.id.Notifications_Switch);
+
 
         SettingsSetUp();
 
@@ -83,15 +85,48 @@ public class Settings extends Fragment {
 
 
 
-//        editor.putBoolean("Ads",false);
-//        editor.putBoolean("notifications",true);
+        //Todo: remove ads and notifications are empty
+
+        //Remove Ads
+        RemoveAds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(MainActivity.SoundON) ClickSound.start();
+
+                if(b){
+                    editor.putBoolean("REMOVEads",true);
+
+                }else{
+                    editor.putBoolean("REMOVEads",false);
+
+                }
+                editor.commit();
+            }
+        });
 
 
+
+
+        //notifications
+        Notifications.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(MainActivity.SoundON) ClickSound.start();
+
+                if(b){
+                    editor.putBoolean("Notification",true);
+
+                }else{
+                    editor.putBoolean("Notification",false);
+
+                }
+                editor.commit();
+            }
+        });
 
 
 
         //Dark Mode
-
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -173,6 +208,19 @@ public class Settings extends Fragment {
         } else{
             screenOn.setChecked(false);
             getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+
+        if(MainActivity.removeAds) {
+            RemoveAds.setChecked(true);
+        }
+        else{
+            RemoveAds.setChecked(false);
+        }
+
+        if(MainActivity.notifications) {
+            Notifications.setChecked(true);
+        }else{
+            Notifications.setChecked(false);
         }
 
     }
