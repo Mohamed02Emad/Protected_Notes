@@ -1,5 +1,7 @@
 package com.example.android.protectednotes;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.WindowManager;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     public static  boolean SoundON =true;
-
+    static Boolean DarkMode,Sounds,Screen;
 
 
     @Override
@@ -42,8 +44,42 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        setUpSettings();
+        setUp2();
+    }
+
+    private void setUp2() {
+        if(MainActivity.DarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+        if(MainActivity.Sounds) {
+            MainActivity.SoundON=true;
+        } else{
+            MainActivity.SoundON=false;
+        }
+
+        if(MainActivity.Screen) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        } else{
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
 
     }
+
+
+
+    public void setUpSettings() {
+        SharedPreferences sp=getSharedPreferences("SettingsModes",Context.MODE_PRIVATE);
+        DarkMode=sp.getBoolean("Dark",true);
+        Screen=sp.getBoolean("ScreenOn",false);
+        Sounds=sp.getBoolean("Sounds",true);
+
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {

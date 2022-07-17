@@ -1,5 +1,7 @@
 package com.example.android.protectednotes;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -15,20 +17,13 @@ import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Settings#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Settings extends Fragment {
     MediaPlayer ClickSound;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -36,15 +31,6 @@ public class Settings extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Settings.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Settings newInstance(String param1, String param2) {
         Settings fragment = new Settings();
         Bundle args = new Bundle();
@@ -53,6 +39,7 @@ public class Settings extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,9 +61,10 @@ public class Settings extends Fragment {
 
 
 
-
-
-
+    SharedPreferences Settings_Modes;
+  public   Switch SoundMode;
+  public   Switch sw;
+  public   Switch  screenOn;
 
 
     @Override
@@ -84,60 +72,109 @@ public class Settings extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ClickSound = MediaPlayer.create(getActivity(),R.raw.click);
 
+        sw =view.findViewById(R.id.DarkMode);
+        screenOn = view.findViewById(R.id.ScreenOn_Switch);
+        SoundMode=view.findViewById(R.id.Sound_Switch);
+
+        SettingsSetUp();
+
+        Settings_Modes=getActivity().getSharedPreferences("SettingsModes", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=Settings_Modes.edit();
+
+
+
+//        editor.putBoolean("Ads",false);
+//        editor.putBoolean("notifications",true);
+
+
 
 
 
         //Dark Mode
-        Switch sw =view.findViewById(R.id.DarkMode);
+
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(MainActivity.SoundON) ClickSound.start();
 
                 if(b){
-
+                    editor.putBoolean("Dark",true);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 }else{
-
+                    editor.putBoolean("Dark",false);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
+                editor.commit();
             }
         });
 
         //Keep screen on
-      Switch  screenOn = view.findViewById(R.id.ScreenOn_Switch);
         screenOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(MainActivity.SoundON)ClickSound.start();
 
                 if(b){
+                    editor.putBoolean("ScreenOn",true);
                     getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);}
                 else {
+                    editor.putBoolean("ScreenOn",false);
                     getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 }
-
+                  editor.commit();
             }
         });
 
 
         //Sound On/Off
-       Switch SoundMode=view.findViewById(R.id.Sound_Switch);
        SoundMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
            @Override
            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                if (SoundMode.isChecked()) {
+                   editor.putBoolean("Sounds",true);
                    ClickSound.start();
                    SoundMode.setChecked(true);
                    MainActivity.SoundON=true;
                } else {
+                   editor.putBoolean("Sounds",false);
                    SoundMode.setChecked(false);
                    MainActivity.SoundON=false;
                }
+               editor.commit();
            }
        });
 
 
+    }
+
+
+   public  void SettingsSetUp(){
+        if(MainActivity.DarkMode) {
+            sw.setChecked(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        else {
+            sw.setChecked(false);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+        if(MainActivity.Sounds) {
+            SoundMode.setChecked(true);
+            MainActivity.SoundON=true;
+        } else{
+            SoundMode.setChecked(false);
+            MainActivity.SoundON=false;
+        }
+
+        if(MainActivity.Screen){
+            screenOn.setChecked(true);
+            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        } else{
+            screenOn.setChecked(false);
+            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
 
     }
+
 }

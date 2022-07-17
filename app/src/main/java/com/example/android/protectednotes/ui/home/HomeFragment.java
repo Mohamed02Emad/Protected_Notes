@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
         home_rv_dataArrayList.add(new home_Rv_Data("house of memories","5/4"));
         home_rv_dataArrayList.add(new home_Rv_Data(" Babe we built this house On memories Take my picture now Shake till you see it and when your fantasies become your legacy Promise me a place in your house of memories","20/10"));
         home_rv_dataArrayList.add(new home_Rv_Data("in the end it does't matter ","1/8"));
-        home_rv_dataArrayList.add(new home_Rv_Data("i'm boooooooooooooooooooored","2/4"));
+        home_rv_dataArrayList.add(new home_Rv_Data("i'm booooooooooooooooooooooooooooooooored","2/4"));
         home_rv_dataArrayList.add(new home_Rv_Data("what was my password","12/4"));
 
     // RV
