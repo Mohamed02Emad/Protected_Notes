@@ -1,9 +1,14 @@
 package com.example.android.protectednotes.ui.home;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.example.android.protectednotes.MainActivity;
 import com.example.android.protectednotes.R;
 import com.example.android.protectednotes.databinding.FragmentHomeBinding;
 
@@ -24,6 +30,16 @@ import home_RV.home_Rv_Data;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private String NoteName;
+    private Button button;
+
+    public void setNoteName(String noteName) {
+        NoteName = noteName;
+    }
+
+    public String getNoteName() {
+        return NoteName;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -59,5 +75,54 @@ public class HomeFragment extends Fragment {
     home_Rv_Adapter Adapter=new home_Rv_Adapter(home_rv_dataArrayList);
     home_RV.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
     home_RV.setAdapter(Adapter);
+
+    //button
+
+        button=view.findViewById(R.id.AddNoteButtonHome);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                AlertDialog.Builder dialogName = new AlertDialog.Builder(getActivity());
+                dialogName.setTitle("Note Title");
+
+                final EditText EditTxtName = new EditText(getActivity());
+
+                dialogName.setView(EditTxtName);
+
+                dialogName.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        NoteName = EditTxtName.getText().toString();
+
+                        //TODO: Add Note to the RV that has title of NoteName (title is the variable date)
+
+
+                        dialogInterface.cancel();
+                    }
+                });
+
+                dialogName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                dialogName.show();
+
+
+
+
+
+
+
+            }
+        });
+
     }
+
+
 }
