@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     public static  boolean SoundON =true;
+    public static boolean  NotificationsOn=true;
+    public static boolean  Remove=false;
     static Boolean DarkMode,Sounds,Screen,notifications,removeAds;
 
 
@@ -67,9 +69,19 @@ public class MainActivity extends AppCompatActivity {
         } else{
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
-//TODO: remmove ads and notifications
 
+        if(MainActivity.notifications) {
+            MainActivity.NotificationsOn=true;
+        } else{
+            MainActivity.NotificationsOn=false;
+        }
 
+        //TODO: remmove ads
+        if(MainActivity.  removeAds) {
+            MainActivity.Remove=true;
+        } else{
+            MainActivity.Remove=false;
+        }
     }
 
 

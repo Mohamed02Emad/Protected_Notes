@@ -15,7 +15,7 @@
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="18dp"
         android:background="@drawable/floating"
-        android:text="+"
+        android:text="@string/plusButton"
         android:textSize="28sp"
         android:textColor="?attr/textTheme"
         android:elevation="16dp"
@@ -32,7 +32,7 @@
         android:textColor="@color/Golden_assistant"
         android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Protected Notes" />
+        android:text="@string/protected_notes" />
 
     <View
         android:id="@+id/home_top_view"

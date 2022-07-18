@@ -19,6 +19,9 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 public class Settings extends Fragment {
+    //TODO: Make Language feature
+    //TODO: DO any thing to "rate us"
+
     MediaPlayer ClickSound;
 
 
@@ -115,10 +118,13 @@ public class Settings extends Fragment {
 
                 if(b){
                     editor.putBoolean("Notification",true);
+                    Notifications.setChecked(true);
+                    MainActivity.NotificationsOn=true;
 
                 }else{
                     editor.putBoolean("Notification",false);
-
+                    Notifications.setChecked(false);
+                    MainActivity.NotificationsOn=false;
                 }
                 editor.commit();
             }
@@ -184,6 +190,7 @@ public class Settings extends Fragment {
 
 
    public  void SettingsSetUp(){
+        //dark mode
         if(MainActivity.DarkMode) {
             sw.setChecked(true);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -192,7 +199,7 @@ public class Settings extends Fragment {
             sw.setChecked(false);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-
+        // sound on
         if(MainActivity.Sounds) {
             SoundMode.setChecked(true);
             MainActivity.SoundON=true;
@@ -200,7 +207,7 @@ public class Settings extends Fragment {
             SoundMode.setChecked(false);
             MainActivity.SoundON=false;
         }
-
+        //screen on
         if(MainActivity.Screen){
             screenOn.setChecked(true);
             getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -209,14 +216,16 @@ public class Settings extends Fragment {
             screenOn.setChecked(false);
             getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
-
+        //Remove Ads
         if(MainActivity.removeAds) {
             RemoveAds.setChecked(true);
+            MainActivity.Remove=true;
         }
         else{
             RemoveAds.setChecked(false);
+            MainActivity.Remove=false;
         }
-
+       //Notifications
         if(MainActivity.notifications) {
             Notifications.setChecked(true);
         }else{

@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1515" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/golden_shape.xml" value="0.1705" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/ic_baseline_menu_book_24.xml" value="0.1705" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1515" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1515" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/ic_baseline_to_do_24.xml" value="0.1515" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1515" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/ic_menu_camera.xml" value="0.1515" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.1515" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1515" />
+        <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/side_nav_bar.xml" value="0.1515" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/switchbutton.xml" value="0.1705" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/thumb.xml" value="0.1705" />
         <entry key="..\:/apps/ProtectedNotes/app/src/main/res/drawable/thumbbb.xml" value="0.1705" />

@@ -3,29 +3,38 @@ package home_RV;
  public class home_Rv_Data {
     //data members
     private String outerContent;
-    private String outerDate;
+    private String title;
+    private String Content;
 
-    //constructor
-    public home_Rv_Data(String outerContent,String outerDate){
-        this.outerContent=outerContent;
-        this.outerDate=outerDate;
-    }
 
-    //setters
-    public void setOuterContent(String outerContent) {
-        this.outerContent = outerContent;
-    }
 
-    public void setOuterDate(String outerDate) {
-        this.outerDate = outerDate;
-    }
+     //constructor
+     public home_Rv_Data(String outerContent,String outerDate){
+         this.outerContent=outerContent;
+         this.title=outerDate;
+     }
 
-     //getters
+     public void setContent(String Content) {
+         this.Content = Content;
+     }
+
      public String getOuterContent() {
          return outerContent;
      }
 
-     public String getOuterDate() {
-         return outerDate;
+     public void setOuterContent(String outerContent) {
+         this.outerContent = outerContent;
+     }
+
+     public String getTitle() {
+         return title;
+     }
+
+     public void setTitle(String title) {
+         this.title = title;
+     }
+
+     public String getContent() {
+         return Content;
      }
  }
