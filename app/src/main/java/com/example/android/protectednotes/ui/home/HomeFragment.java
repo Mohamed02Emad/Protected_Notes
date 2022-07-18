@@ -39,7 +39,6 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
     private Button button;
 //TODO: make a snack bar that deletes a note on long Click
 //TODO: make notes dragable
-//TODO: make a paper activity (that doen't fill the screen) hint --> use Edit text in a large Scale
 //TODO: make database to hold 3 strings (title , content , outer content)
 //TODO: design a method to creat the outer content
 //TODO: Link add button to your database and rv
@@ -152,6 +151,6 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
 
     @Override
     public void OnItemLongClick(int position) {
-
+        Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
     }
 }

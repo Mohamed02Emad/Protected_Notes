@@ -27,7 +27,7 @@ public class home_Rv_Adapter extends RecyclerView.Adapter<home_Rv_VH> {
     @Override
     public void onBindViewHolder(@NonNull home_Rv_VH holder, int position) {
     home_Rv_Data d1=arrayList.get(position);
-    holder.outer.setText(d1.getOuterContent());
+    holder.outer.setText(d1.getContent());
     holder.Title.setText(d1.getTitle());
     }
 

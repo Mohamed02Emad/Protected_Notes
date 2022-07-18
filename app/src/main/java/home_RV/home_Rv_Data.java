@@ -9,8 +9,8 @@ package home_RV;
 
 
      //constructor
-     public home_Rv_Data(String outerContent,String outerDate){
-         this.outerContent=outerContent;
+     public home_Rv_Data(String Content,String outerDate){
+         this.Content=Content;
          this.title=outerDate;
      }
 
