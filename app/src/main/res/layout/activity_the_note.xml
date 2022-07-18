@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#4AFFD700"
     tools:context=".The_Note">
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Save_Note_Button"
         android:layout_width="wrap_content"
