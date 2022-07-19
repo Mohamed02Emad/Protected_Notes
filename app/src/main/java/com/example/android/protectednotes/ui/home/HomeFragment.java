@@ -54,15 +54,16 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
     private Button button;
     NotesDataBase notesDataBase;
     RecyclerView home_RV;
-    home_Rv_Adapter Adapter ;
+    home_Rv_Adapter Adapter;
 
-//TODO: Make a notification for anything
+    //TODO: Make a notification for anything
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         return root;
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -72,11 +73,11 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        notesDataBase = Room.databaseBuilder(getActivity().getApplicationContext(),NotesDataBase.class,"notes")
+        notesDataBase = Room.databaseBuilder(getActivity().getApplicationContext(), NotesDataBase.class, "notes")
                 .allowMainThreadQueries()
                 .build();
 
-        constraintLayout=view.findViewById(R.id.constraintid);
+        constraintLayout = view.findViewById(R.id.constraintid);
         // RV
         home_RV = view.findViewById(R.id.RV);
         Adapter = new home_Rv_Adapter(home_rv_dataArrayList, this);
@@ -102,10 +103,10 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
 
                         Intent intent = new Intent(getActivity(), The_Note.class);
                         intent.putExtra("Title", NoteName);
-                        intent.putExtra("Content","" );
+                        intent.putExtra("Content", "");
                         startActivity(intent);
                         getActivity().finish();
-               //         Toast.makeText(getActivity(), NoteName + " Was added", Toast.LENGTH_SHORT).show();
+                        //         Toast.makeText(getActivity(), NoteName + " Was added", Toast.LENGTH_SHORT).show();
                         dialogInterface.cancel();
                     }
                 });
@@ -119,9 +120,9 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
             }
         });
 
-       if(MainActivity.resetDB)resetdb();
+        if (MainActivity.resetDB) resetdb();
         Drag();
-        MainActivity.resetDB=false;
+        MainActivity.resetDB = false;
     }
 
     public void setNoteName(String noteName) {
@@ -145,7 +146,7 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
 
     @Override
     public void OnItemLongClick(int position) {
-        Snackbar.make(constraintLayout,"Delete ?",Snackbar.LENGTH_SHORT)
+        Snackbar.make(constraintLayout, "Delete ?", Snackbar.LENGTH_SHORT)
                 .setAction("YES", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -168,8 +169,10 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
                 recyclerView.getAdapter().notifyItemMoved(fromPosition, toPosition);
                 return false;
             }
+
             @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) { }
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            }
         }).attachToRecyclerView(home_RV);
     }
 
@@ -178,3 +181,4 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
         home_rv_dataArrayList.addAll(notesDataBase.noteDao().getAll());
         Adapter.notifyDataSetChanged();
     }
+}
