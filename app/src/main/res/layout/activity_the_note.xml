@@ -10,12 +10,13 @@
         android:id="@+id/Save_Note_Button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/Note_Title"
         app:layout_constraintBottom_toBottomOf="@id/Note_Title"
         android:background="@drawable/cancel_button"
         android:text="Save"
         android:textSize="14sp"
+        android:textColor="@color/black"
         android:layout_marginEnd="4dp"
         />
 <TextView
@@ -26,9 +27,10 @@
     android:textColor="?attr/textTheme"
     app:layout_constraintTop_toTopOf="parent"
     tools:text="Title"
+    android:gravity="left"
     android:paddingStart="18dp"
     android:paddingTop="10dp"
-    android:textSize="29sp"
+    android:textSize="28sp"
     />
     <EditText
         android:id="@+id/Edit_Text_Note"

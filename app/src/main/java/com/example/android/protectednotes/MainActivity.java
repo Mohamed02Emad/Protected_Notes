@@ -20,11 +20,13 @@ import com.example.android.protectednotes.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static boolean resetDB;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     public static  boolean SoundON =true;
     public static boolean  NotificationsOn=true;
     public static boolean  Remove=false;
+
     static Boolean DarkMode,Sounds,Screen,notifications,removeAds;
 
 
