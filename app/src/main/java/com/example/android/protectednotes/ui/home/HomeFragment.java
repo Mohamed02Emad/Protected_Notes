@@ -56,10 +56,6 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
     RecyclerView home_RV;
     home_Rv_Adapter Adapter ;
 
-
-    //TODO: make a snack bar that deletes a note on long Click
-//TODO: make database to hold 3 strings (title , content , outer content)
-//TODO: design a method to creat the outer content
 //TODO: Make a notification for anything
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -107,8 +103,6 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         NoteName = EditTxtName.getText().toString();
-                        //TODO: Add Note to the RV that has title of NoteName (title is the variable date)
-
 
                         Intent intent = new Intent(getActivity(), The_Note.class);
                         intent.putExtra("Title", NoteName);
@@ -171,7 +165,7 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
 
     }
     private void Drag() {
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT|ItemTouchHelper.DOWN | ItemTouchHelper.UP, 0) {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN | ItemTouchHelper.UP, 0) {
 
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
