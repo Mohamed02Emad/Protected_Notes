@@ -63,7 +63,6 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
         View root = binding.getRoot();
         return root;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -83,12 +82,9 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
         Adapter = new home_Rv_Adapter(home_rv_dataArrayList, this);
         home_RV.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         home_RV.setAdapter(Adapter);
-
         home_rv_dataArrayList.clear();
         home_rv_dataArrayList.addAll(notesDataBase.noteDao().getAll());
         Adapter.notifyDataSetChanged();
-
-
         //button
         button = view.findViewById(R.id.AddNoteButtonHome);
         button.setOnClickListener(new View.OnClickListener() {
@@ -109,8 +105,6 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
                         intent.putExtra("Content","" );
                         startActivity(intent);
                         getActivity().finish();
-
-
                //         Toast.makeText(getActivity(), NoteName + " Was added", Toast.LENGTH_SHORT).show();
                         dialogInterface.cancel();
                     }
@@ -124,7 +118,6 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
                 dialogName.show();
             }
         });
-
 
        if(MainActivity.resetDB)resetdb();
         Drag();
@@ -162,8 +155,8 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
                 })
                 .setActionTextColor(getResources().getColor(R.color.Golden_Theme))
                 .show();
-
     }
+
     private void Drag() {
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN | ItemTouchHelper.UP, 0) {
 
@@ -180,16 +173,8 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
         }).attachToRecyclerView(home_RV);
     }
 
-
-
     public void resetdb() {
         home_rv_dataArrayList.clear();
         home_rv_dataArrayList.addAll(notesDataBase.noteDao().getAll());
         Adapter.notifyDataSetChanged();
-
     }
-
-    public void getALL(){
-        notesDataBase.noteDao().getAll();
-    }
-}

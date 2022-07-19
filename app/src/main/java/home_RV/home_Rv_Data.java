@@ -13,8 +13,6 @@ import androidx.room.PrimaryKey;
     private String title;
     private String Content;
 
-
-
      //constructor
      public home_Rv_Data( String Content,String title){
          this.Content=Content;

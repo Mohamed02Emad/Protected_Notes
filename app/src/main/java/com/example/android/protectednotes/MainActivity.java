@@ -21,14 +21,12 @@ import com.example.android.protectednotes.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     public static boolean resetDB;
-    private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
-    public static  boolean SoundON =true;
+    public static boolean SoundON =true;
     public static boolean  NotificationsOn=true;
     public static boolean  Remove=false;
-
-    static Boolean DarkMode,Sounds,Screen,notifications,removeAds;
-
+    public static Boolean DarkMode,Sounds,Screen,notifications,removeAds;
+    private AppBarConfiguration mAppBarConfiguration;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
     public void setUpSettings() {
         SharedPreferences sp=getSharedPreferences("SettingsModes",Context.MODE_PRIVATE);
         DarkMode=sp.getBoolean("Dark",true);
@@ -97,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         removeAds=sp.getBoolean("REMOVEads",false);
 
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {

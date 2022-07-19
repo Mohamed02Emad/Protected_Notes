@@ -21,13 +21,12 @@ import android.widget.Switch;
 public class Settings extends Fragment {
     //TODO: Make Language feature
     //TODO: DO any thing to "rate us"
-
+    SharedPreferences Settings_Modes;
+    public   Switch SoundMode,sw,screenOn,RemoveAds,Notifications;
     MediaPlayer ClickSound;
-
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     private String mParam1;
     private String mParam2;
 
@@ -44,7 +43,6 @@ public class Settings extends Fragment {
         return fragment;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,21 +52,12 @@ public class Settings extends Fragment {
         }
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_settings, container, false);
     }
-
-
-
-    SharedPreferences Settings_Modes;
-  public   Switch SoundMode,sw,screenOn,RemoveAds,Notifications;
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -80,15 +69,10 @@ public class Settings extends Fragment {
         RemoveAds=view.findViewById(R.id.RemoveAds_Switch);
         Notifications=view.findViewById(R.id.Notifications_Switch);
 
-
         SettingsSetUp();
 
         Settings_Modes=getActivity().getSharedPreferences("SettingsModes", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=Settings_Modes.edit();
-
-
-
-        //Todo: remove ads and notifications are empty
 
         //Remove Ads
         RemoveAds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -98,18 +82,16 @@ public class Settings extends Fragment {
 
                 if(b){
                     editor.putBoolean("REMOVEads",true);
-
+                    RemoveAds.setChecked(true);
+                    MainActivity.Remove=true;
                 }else{
                     editor.putBoolean("REMOVEads",false);
-
+                    RemoveAds.setChecked(false);
+                    MainActivity.Remove=false;
                 }
                 editor.commit();
             }
         });
-
-
-
-
         //notifications
         Notifications.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -129,8 +111,6 @@ public class Settings extends Fragment {
                 editor.commit();
             }
         });
-
-
 
         //Dark Mode
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -166,7 +146,6 @@ public class Settings extends Fragment {
             }
         });
 
-
         //Sound On/Off
        SoundMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
            @Override
@@ -184,10 +163,7 @@ public class Settings extends Fragment {
                editor.commit();
            }
        });
-
-
     }
-
 
    public  void SettingsSetUp(){
         //dark mode
