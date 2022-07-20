@@ -2,6 +2,7 @@ package com.example.android.protectednotes;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.WindowManager;
@@ -18,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.android.protectednotes.databinding.ActivityMainBinding;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     public static boolean resetDB;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LoadLang();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
@@ -48,6 +52,27 @@ public class MainActivity extends AppCompatActivity {
 
         setUpSettings();
         setUp2();
+    }
+
+    public void LoadLang(){
+     SharedPreferences pref=getSharedPreferences("Language",MODE_PRIVATE);
+     String lang=pref.getString("AppLang","");
+     setLocal(lang);
+
+    }
+
+    private void setLocal(String s){
+        Locale locale =new Locale(s);
+        Locale.setDefault(locale);
+
+        Configuration configuration=new Configuration();
+        configuration.locale=locale;
+        getBaseContext().getResources().updateConfiguration(configuration,
+        getBaseContext().getResources().getDisplayMetrics());
+
+        SharedPreferences.Editor editor=getSharedPreferences("Language",Context.MODE_PRIVATE).edit();
+        editor.putString("AppLang",s);
+        editor.commit();
     }
 
     private void setUp2() {

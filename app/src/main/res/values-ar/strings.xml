@@ -16,4 +16,5 @@
     <string name="protected_notes" translatable="false">ملاحظات محمية</string>
     <string name="to_do_list">قائمة المهام</string>
     <string name="save">حفظ</string>
+    <string name="selectLang">أختر اللغة</string>
 </resources>

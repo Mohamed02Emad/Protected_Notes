@@ -1,8 +1,11 @@
 package com.example.android.protectednotes;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -19,12 +22,15 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class Settings extends Fragment {
     //TODO: Make Language feature
     //TODO: DO any thing to "rate us"
     SharedPreferences Settings_Modes;
     public   Switch SoundMode,sw,screenOn,RemoveAds,Notifications;
     MediaPlayer ClickSound;
+
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -169,14 +175,54 @@ public class Settings extends Fragment {
         Language.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+            //TODO:chane language using language button
+              ShowLanguages();
 
             }
         });
     }
 
-   public  void SettingsSetUp(){
+    private void ShowLanguages() {
+        final String[] Languages ={"English" ,"العربية"};
+
+        AlertDialog.Builder mBuilder=new AlertDialog.Builder(getActivity());
+        mBuilder.setTitle(R.string.selectLang);
+        mBuilder.setSingleChoiceItems(Languages, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(i==1){
+                    setLocal("ar");
+                    getActivity().recreate();
+                }
+                else if (i==0){
+                    setLocal("en");
+                    getActivity().recreate();
+                }
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog mDialog=mBuilder.create();
+        mDialog.show();
+    }
+
+    private void setLocal(String s){
+        Locale locale =new Locale(s);
+        Locale.setDefault(locale);
+
+        Configuration configuration=new Configuration();
+        configuration.locale=locale;
+        getActivity().getBaseContext().getResources().updateConfiguration(configuration,
+                getActivity().getBaseContext().getResources().getDisplayMetrics());
+
+        SharedPreferences.Editor editor=getActivity().getSharedPreferences("Language",Context.MODE_PRIVATE).edit();
+        editor.putString("AppLang",s);
+        editor.commit();
+    }
+
+
+
+
+    public  void SettingsSetUp(){
         //dark mode
         if(MainActivity.DarkMode) {
             sw.setChecked(true);

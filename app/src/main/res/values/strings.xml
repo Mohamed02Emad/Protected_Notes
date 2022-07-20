@@ -25,4 +25,5 @@
     <string name="protected_notes">Protected Notes</string>
     <string name="to_do_list">To do List</string>
     <string name="save">Save</string>
+    <string name="selectLang">Select Language</string>
 </resources>
