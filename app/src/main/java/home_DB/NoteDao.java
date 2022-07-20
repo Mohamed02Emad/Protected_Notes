@@ -22,4 +22,5 @@ public interface NoteDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void Insert(home_Rv_Data home_rv_data);
+
 }
