@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="@id/Note_Title"
         app:layout_constraintBottom_toBottomOf="@id/Note_Title"
         android:background="@drawable/cancel_button"
-        android:text="Save"
+        android:text="@string/save"
         android:textSize="14sp"
         android:textColor="@color/black"
         android:layout_marginEnd="4dp"
