@@ -5,9 +5,9 @@ public class ToDoData {
     private String Text;
     private boolean CheckBoxState;
 
-    public ToDoData(String text, boolean checkBoxState) {
-        Text = text;
-        CheckBoxState = checkBoxState;
+    public ToDoData(String Text, boolean CheckBoxState) {
+        this.Text = Text;
+       this. CheckBoxState = CheckBoxState;
     }
 
 
