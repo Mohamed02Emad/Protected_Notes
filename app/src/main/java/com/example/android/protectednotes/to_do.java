@@ -12,13 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import Todo_RV.ListInterface;
 import Todo_RV.ToDoAdapter;
 import Todo_RV.ToDoData;
 
-public class to_do extends Fragment {
+public class to_do extends Fragment implements ListInterface {
 
     ArrayList<ToDoData> arrayList=new ArrayList<>();
     RecyclerView recyclerView;
@@ -70,7 +72,7 @@ public class to_do extends Fragment {
     }
 
     private void setUpRv() {
-        adapter=new ToDoAdapter(arrayList);
+        adapter=new ToDoAdapter(arrayList,this);
         LinearLayoutManager L=new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(L);
         recyclerView.setAdapter(adapter);
@@ -82,6 +84,11 @@ public class to_do extends Fragment {
         arrayList.add(new ToDoData("DataBase2",true));
         arrayList.add(new ToDoData("DataBase3",false));
         arrayList.add(new ToDoData("DataBase4",true));
+    }
+
+    @Override
+    public void OnItemClick(int position) {
+        Toast.makeText(getActivity(), arrayList.get(position).getText(), Toast.LENGTH_SHORT).show();
     }
 }
 
