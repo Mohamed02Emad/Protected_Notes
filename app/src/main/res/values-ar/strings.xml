@@ -12,9 +12,13 @@
     <string name="notifications">الاشعارات</string>
     <string name="sounds">الاصوات</string>
     <string name="keep_screen_on">ابقاء الشاشة في وضع التشغيل</string>
-    <string name="rate_us">قيمنا</string>
+    <string name="rate_us">تغيير كلمة المرور</string>
     <string name="protected_notes" translatable="false">ملاحظات محمية</string>
     <string name="to_do_list">قائمة المهام</string>
     <string name="save">حفظ</string>
     <string name="selectLang">أختر اللغة</string>
+    <string name="password">كلمة السر</string>
+    <string name="first_time_password_is_0000">كلمة المرور الاولي هي 0000</string>
+    <string name="enter_password">ادخل كلمة المرور</string>
+    <string name="login">تسجيل الدخول</string>
 </resources>

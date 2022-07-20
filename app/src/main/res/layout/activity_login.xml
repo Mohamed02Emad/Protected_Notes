@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login">
+
+    <View
+        android:id="@+id/upperLine"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/Golden_Theme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lowerLine"
+        />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toTopOf="@id/upperLine"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:textColor="?attr/textTheme"
+    android:text="@string/password"
+    android:textSize="44sp"
+    android:layout_marginBottom="10dp"
+    />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/password_Txt"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:layout_constraintTop_toBottomOf="@id/upperLine"
+        app:layout_constraintBottom_toTopOf="@id/lowerLine"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:textColor="?attr/textTheme"
+        android:inputType="numberPassword"
+        android:hint="@string/enter_password"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:background="#46FFD700"
+        android:layout_marginBottom="35dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lowerLine"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="12dp"
+        android:text="@string/first_time_password_is_0000"
+        android:textSize="14sp"
+        android:textColor="?attr/textTheme"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        app:layout_constraintTop_toBottomOf="@id/password_Txt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="@string/login"
+        android:textSize="20sp"
+        android:background="@drawable/floating"
+        />
+
+    <View
+        android:id="@+id/lowerLine"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/Golden_Theme"
+        app:layout_constraintTop_toBottomOf="@id/upperLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

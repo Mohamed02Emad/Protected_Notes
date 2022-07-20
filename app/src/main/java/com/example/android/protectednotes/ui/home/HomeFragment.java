@@ -174,6 +174,7 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             }
         }).attachToRecyclerView(home_RV);
+        resetdb();
     }
 
     public void resetdb() {

@@ -253,7 +253,7 @@
             android:background="?attr/line" />
 
         <TextView
-            android:id="@+id/RateUs_Button"
+            android:id="@+id/resetpassword_Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"

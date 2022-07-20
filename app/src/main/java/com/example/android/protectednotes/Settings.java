@@ -14,20 +14,23 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
 public class Settings extends Fragment {
     //TODO: Make Language feature
     //TODO: DO any thing to "rate us"
-    SharedPreferences Settings_Modes;
+    SharedPreferences Settings_Modes,LoginDataPref;
     public   Switch SoundMode,sw,screenOn,RemoveAds,Notifications;
     MediaPlayer ClickSound;
 
@@ -80,6 +83,9 @@ public class Settings extends Fragment {
 
         Settings_Modes=getActivity().getSharedPreferences("SettingsModes", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=Settings_Modes.edit();
+
+        LoginDataPref=getActivity().getSharedPreferences("logindatapred", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor2=LoginDataPref.edit();
 
         //Remove Ads
         RemoveAds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -178,6 +184,90 @@ public class Settings extends Fragment {
             //TODO:chane language using language button
               ShowLanguages();
 
+            }
+        });
+
+        TextView textView=view.findViewById(R.id.resetpassword_Button);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                AlertDialog.Builder dialogName = new AlertDialog.Builder(getActivity());
+                dialogName.setTitle("Enter current Password");
+
+                final EditText EditTxtName = new EditText(getActivity());
+                // change PHONE to any input type
+                EditTxtName.setInputType(InputType.TYPE_CLASS_PHONE);
+                dialogName.setView(EditTxtName);
+
+                dialogName.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String ToReturn = EditTxtName.getText().toString();
+
+                       //TODO: make string password from shared pref
+                        SharedPreferences pref=getActivity().getSharedPreferences("logindatapred",Context.MODE_PRIVATE);
+                        String password=pref.getString("Password","0000");
+
+                        if(ToReturn.toString().equals(password)){
+                            AlertDialog.Builder dialogName = new AlertDialog.Builder(getActivity());
+                            dialogName.setTitle("Enter New Password");
+
+                            final EditText EditTxtName = new EditText(getActivity());
+                            // change PHONE to any input type
+                            EditTxtName.setInputType(InputType.TYPE_CLASS_PHONE);
+                            dialogName.setView(EditTxtName);
+
+                            dialogName.setPositiveButton("Reset Password", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    String ToReturn = EditTxtName.getText().toString();
+                                   //TODO update shared pref
+                                     editor2.putString("Password",ToReturn);
+                                     editor2.commit();
+                                    Toast.makeText(getActivity(), "Password has been reset", Toast.LENGTH_SHORT).show();
+                                    dialogInterface.cancel();
+                                }
+                            });
+
+                            dialogName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            });
+                            dialogName.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        }else{
+                            Toast.makeText(getActivity(), "Wrong Password", Toast.LENGTH_SHORT).show();
+                        }
+                        dialogInterface.cancel();
+                    }
+                });
+
+                dialogName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                dialogName.show();
             }
         });
     }

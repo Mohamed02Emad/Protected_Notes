@@ -20,10 +20,14 @@
     <string name="notifications">Notifications</string>
     <string name="sounds">Sounds</string>
     <string name="keep_screen_on">Keep Screen On</string>
-    <string name="rate_us">Rate Us</string>
+    <string name="rate_us">Reset Password</string>
     <string name="plusButton" translatable="false">+</string>
     <string name="protected_notes">Protected Notes</string>
     <string name="to_do_list">To do List</string>
     <string name="save">Save</string>
     <string name="selectLang">Select Language</string>
+    <string name="password">Password</string>
+    <string name="first_time_password_is_0000">first time password is 0000</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
 </resources>
