@@ -1,12 +1,14 @@
 package com.example.android.protectednotes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ public class login extends AppCompatActivity {
 
     Button button;
     EditText editText;
+    boolean DarkMode;
     SharedPreferences shared;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,14 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         button=findViewById(R.id.btnLogin);
         editText=findViewById(R.id.password_Txt);
-
+        SharedPreferences sp=getSharedPreferences("SettingsModes",Context.MODE_PRIVATE);
+        DarkMode=sp.getBoolean("Dark",true);
+        if(DarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 //        shared=getSharedPreferences("LoginData", Context.MODE_PRIVATE);
 //        SharedPreferences.Editor editor=shared.edit();
 //        editor.putString("login","0000");
@@ -44,4 +54,6 @@ public class login extends AppCompatActivity {
             }
         });
     }
+
+
 }

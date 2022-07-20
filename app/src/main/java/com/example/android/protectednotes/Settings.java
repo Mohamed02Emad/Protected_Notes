@@ -241,19 +241,6 @@ public class Settings extends Fragment {
                             dialogName.show();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                         }else{
                             Toast.makeText(getActivity(), "Wrong Password", Toast.LENGTH_SHORT).show();
                         }
