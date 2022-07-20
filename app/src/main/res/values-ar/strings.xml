@@ -13,4 +13,7 @@
     <string name="sounds">الاصوات</string>
     <string name="keep_screen_on">ابقاء الشاشة في وضع التشغيل</string>
     <string name="rate_us">قيمنا</string>
+    <string name="protected_notes" translatable="false">ملاحظات محمية</string>
+    <string name="to_do_list">قائمة المهام</string>
+    <string name="save">حفظ</string>
 </resources>

@@ -15,7 +15,6 @@
         app:layout_constraintBottom_toBottomOf="@id/topPage"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="18dp"
-        android:layout_marginTop="18dp"
         android:background="@drawable/floating"
         android:text="@string/plusButton"
         android:gravity="center"

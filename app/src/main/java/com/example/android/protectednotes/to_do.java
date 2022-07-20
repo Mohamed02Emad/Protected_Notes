@@ -152,6 +152,7 @@ public class to_do extends Fragment implements ListInterface {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
                 todoDB.todoDao().Delete(adapter.ReturnData(viewHolder.getAdapterPosition()));
+                resetdb();
             }
         }).attachToRecyclerView(recyclerView);
     }

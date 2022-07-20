@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 
 public class Settings extends Fragment {
     //TODO: Make Language feature
@@ -163,6 +164,16 @@ public class Settings extends Fragment {
                editor.commit();
            }
        });
+
+        TextView Language= view.findViewById(R.id.Language_Button);
+        Language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+            }
+        });
     }
 
    public  void SettingsSetUp(){
