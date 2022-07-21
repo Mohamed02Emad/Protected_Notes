@@ -21,6 +21,10 @@
         <item name="android:navigationBarColor">#978526</item>
     </style>
 
+    <style name="Splash_Screen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+<item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#7DFADB35</item>
+    </style>
 
         <style name="Theme.ProtectedNotes.NoActionBar">
         <item name="windowActionBar">false</item>

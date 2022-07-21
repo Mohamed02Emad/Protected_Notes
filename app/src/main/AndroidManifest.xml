@@ -20,11 +20,14 @@
         <activity
             android:name=".The_Note"
             android:exported="false" />
+        <activity android:name=".login"
+                  android:exported="true"
+            />
         <activity
-            android:name=".login"
+            android:name=".ui.home.SplashScreen"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.ProtectedNotes.NoActionBar">
+            android:theme="@style/Splash_Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
