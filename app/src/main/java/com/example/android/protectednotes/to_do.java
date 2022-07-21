@@ -89,13 +89,13 @@ public class to_do extends Fragment implements ListInterface {
     private void AddDialogue(){
         //TODO: insert
         AlertDialog.Builder dialogName = new AlertDialog.Builder(getActivity());
-        dialogName.setTitle("Add To List");
+        dialogName.setTitle(R.string.addToList);
 
         final EditText EditTxtName = new EditText(getActivity());
 
         dialogName.setView(EditTxtName);
 
-        dialogName.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+        dialogName.setPositiveButton(R.string.Add, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -106,7 +106,7 @@ public class to_do extends Fragment implements ListInterface {
             }
         });
 
-        dialogName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        dialogName.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.cancel();

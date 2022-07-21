@@ -21,4 +21,18 @@
     <string name="first_time_password_is_0000">كلمة المرور الاولي هي 0000</string>
     <string name="enter_password">ادخل كلمة المرور</string>
     <string name="login">تسجيل الدخول</string>
+    <string name="wrongPass">كلمة مرور خاطئة</string>
+    <string name="PasswordHasBeenReset">تم تعيين كلمة المرور</string>
+    <string name="ResetPassword">اعد تعيين كلمة المرور</string>
+    <string name="EnterNewPassword">ادخل كلمة مرور جديدة</string>
+    <string name="next">التالي</string>
+    <string name="Enter_Current_Password">ادخل كلمة المرور الحالية</string>
+    <string name="addToList">اضف للقائمة</string>
+    <string name="cancel">الغاء</string>
+    <string name="Add">اضافة</string>
+    <string name="Note_Title">عنوان الملاحظة</string>
+    <string name="protec">ملاحظات محمية</string>
+    <string name="Delete">احذف ؟</string>
+    <string name="yes">نعم</string>
+    <string name="question">؟</string>
 </resources>

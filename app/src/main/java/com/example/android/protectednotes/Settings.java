@@ -195,14 +195,14 @@ public class Settings extends Fragment {
 
 
                 AlertDialog.Builder dialogName = new AlertDialog.Builder(getActivity());
-                dialogName.setTitle("Enter current Password");
+                dialogName.setTitle(R.string.Enter_Current_Password);
 
                 final EditText EditTxtName = new EditText(getActivity());
                 // change PHONE to any input type
                 EditTxtName.setInputType(InputType.TYPE_CLASS_PHONE);
                 dialogName.setView(EditTxtName);
 
-                dialogName.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                dialogName.setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String ToReturn = EditTxtName.getText().toString();
@@ -213,26 +213,26 @@ public class Settings extends Fragment {
 
                         if(ToReturn.toString().equals(password)){
                             AlertDialog.Builder dialogName = new AlertDialog.Builder(getActivity());
-                            dialogName.setTitle("Enter New Password");
+                            dialogName.setTitle(R.string.EnterNewPassword);
 
                             final EditText EditTxtName = new EditText(getActivity());
                             // change PHONE to any input type
                             EditTxtName.setInputType(InputType.TYPE_CLASS_PHONE);
                             dialogName.setView(EditTxtName);
 
-                            dialogName.setPositiveButton("Reset Password", new DialogInterface.OnClickListener() {
+                            dialogName.setPositiveButton(R.string.ResetPassword, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     String ToReturn = EditTxtName.getText().toString();
                                    //TODO update shared pref
                                      editor2.putString("Password",ToReturn);
                                      editor2.commit();
-                                    Toast.makeText(getActivity(), "Password has been reset", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), R.string.PasswordHasBeenReset, Toast.LENGTH_SHORT).show();
                                     dialogInterface.cancel();
                                 }
                             });
 
-                            dialogName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            dialogName.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     dialogInterface.cancel();
@@ -242,13 +242,13 @@ public class Settings extends Fragment {
 
 
                         }else{
-                            Toast.makeText(getActivity(), "Wrong Password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(),getString(R.string.wrongPass), Toast.LENGTH_SHORT).show();
                         }
                         dialogInterface.cancel();
                     }
                 });
 
-                dialogName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                dialogName.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();

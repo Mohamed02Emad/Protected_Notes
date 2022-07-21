@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.android.protectednotes.ui.home.HomeFragment;
 
@@ -25,7 +27,7 @@ public class The_Note extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     AppCompatButton button;
     String title,text;
-    int id=1;
+    int id=1,position;
     TextView Title;
     EditText Text;
     NotesDataBase notesDataBase;
@@ -46,6 +48,9 @@ public class The_Note extends AppCompatActivity {
 
         title=getIntent().getStringExtra("Title");
         text=getIntent().getStringExtra("Content");
+        position=getIntent().getIntExtra("id",0);
+
+
 
         Title.setText(title);
         Text.setText(text);
@@ -58,23 +63,24 @@ public class The_Note extends AppCompatActivity {
                 String newContent = Text.getText().toString();
                 Replace(id,newContent,title);
 
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-                finish();
+          //      Toast.makeText(The_Note.this, ""+position, Toast.LENGTH_SHORT).show();
+                onBackPressed();
 
             }
         });
     }
 
+
     @Override
     public void onBackPressed() {
-        Replace(id,text,title);
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(intent);
-        finish();
+        super.onBackPressed();
     }
 
-    public void Replace(int id,String Content ,  String title) {
-        notesDataBase.noteDao().Insert(new home_Rv_Data(Content,title));
+    public void Replace(int id, String Content , String title) {
+        // title ,text, position
+       home_Rv_Data home_rv_dat= new home_Rv_Data(Content,title);
+       home_rv_dat.setId(position);
+        notesDataBase.noteDao().Update(home_rv_dat);
     }
+
 }

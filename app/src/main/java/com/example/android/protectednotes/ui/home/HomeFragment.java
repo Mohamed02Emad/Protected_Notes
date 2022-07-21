@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
     private Button button;
     NotesDataBase notesDataBase;
     RecyclerView home_RV;
-    home_Rv_Adapter Adapter;
+    static home_Rv_Adapter Adapter;
 
     //TODO: Make a notification for anything
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -93,25 +93,22 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder dialogName = new AlertDialog.Builder(getActivity());
-                dialogName.setTitle("Note Title");
+                dialogName.setTitle(R.string.Note_Title);
 
                 final EditText EditTxtName = new EditText(getActivity());
                 dialogName.setView(EditTxtName);
-                dialogName.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                dialogName.setPositiveButton(R.string.Add, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         NoteName = EditTxtName.getText().toString();
 
-                        Intent intent = new Intent(getActivity(), The_Note.class);
-                        intent.putExtra("Title", NoteName);
-                        intent.putExtra("Content", "");
-                        startActivity(intent);
-                        getActivity().finish();
+                        notesDataBase.noteDao().Insert(new home_Rv_Data("",NoteName));
+                        resetdb();
                         //         Toast.makeText(getActivity(), NoteName + " Was added", Toast.LENGTH_SHORT).show();
                         dialogInterface.cancel();
                     }
                 });
-                dialogName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                dialogName.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
@@ -122,7 +119,7 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
         });
 
         if (MainActivity.resetDB) resetdb();
-        Drag();
+       // Drag();
         MainActivity.resetDB = false;
     }
 
@@ -139,23 +136,25 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
         Intent intent = new Intent(getActivity(), The_Note.class);
         intent.putExtra("Title", home_rv_dataArrayList.get(position).getTitle());
         intent.putExtra("Content", home_rv_dataArrayList.get(position).getContent());
+        intent.putExtra("id",home_rv_dataArrayList.get(position).getId());
         startActivity(intent);
 
-        notesDataBase.noteDao().DeleteNote(Adapter.ReturnData(position));
-        getActivity().finish();
+     //   Toast.makeText(getActivity(),home_rv_dataArrayList.get(position).getId(), Toast.LENGTH_SHORT).show();
+     //    getActivity().finish();
     }
 
     @Override
     public void OnItemLongClick(int position) {
-        Snackbar.make(constraintLayout, "Delete ?", Snackbar.LENGTH_SHORT)
-                .setAction("YES", new View.OnClickListener() {
+        Snackbar.make(constraintLayout,getString( R.string.Delete)+" "+home_rv_dataArrayList.get(position).getTitle()+getString(R.string.question), Snackbar.LENGTH_SHORT)
+                .setAction(R.string.yes, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         notesDataBase.noteDao().DeleteNote(Adapter.ReturnData(position));
                         resetdb();
                     }
                 })
-                .setActionTextColor(getResources().getColor(R.color.Golden_Theme))
+                .setActionTextColor(getResources().getColor(R.color.white))
+                .setBackgroundTint(getResources().getColor(R.color.Golden_Theme))
                 .show();
     }
 
@@ -189,6 +188,12 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
             }
         }).attachToRecyclerView(home_RV);
         resetdb();
+    }
+
+    @Override
+    public void onResume() {
+        resetdb();
+        super.onResume();
     }
 
     public void resetdb() {

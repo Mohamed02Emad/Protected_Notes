@@ -30,4 +30,18 @@
     <string name="first_time_password_is_0000">first time password is 0000</string>
     <string name="enter_password">Enter Password</string>
     <string name="login">Login</string>
+    <string name="Note_Title">Note Title</string>
+    <string name="Add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="addToList">Add To List</string>
+    <string name="Enter_Current_Password">Enter current Password</string>
+    <string name="next">Next</string>
+    <string name="EnterNewPassword">Enter New Password</string>
+    <string name="ResetPassword">Reset Password</string>
+    <string name="PasswordHasBeenReset">Password has been reset</string>
+    <string name="wrongPass">Wrong Password</string>
+    <string name="protec">Protected Notes</string>
+    <string name="Delete">"Delete "</string>
+    <string name="yes">YES</string>
+    <string name="question">\?</string>
 </resources>

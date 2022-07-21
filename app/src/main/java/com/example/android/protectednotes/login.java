@@ -48,7 +48,8 @@ public class login extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else{
-                    Toast.makeText(login.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, getString(R.string.wrongPass), Toast.LENGTH_SHORT).show();
+                    editText.setText("");
                 }
 
             }
