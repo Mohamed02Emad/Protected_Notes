@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import Todo_RV.ToDoData;
 import home_DB.NoteDao;
 import home_DB.NotesDataBase;
 import home_RV.home_Rv_Adapter;
@@ -165,8 +166,21 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 int fromPosition = viewHolder.getAdapterPosition();
                 int toPosition = target.getAdapterPosition();
+
                 Collections.swap(home_rv_dataArrayList, fromPosition, toPosition);
                 recyclerView.getAdapter().notifyItemMoved(fromPosition, toPosition);
+
+                int id1=home_rv_dataArrayList.get(fromPosition).getId();
+                int id2=home_rv_dataArrayList.get(toPosition).getId();
+
+                home_Rv_Data d1= home_rv_dataArrayList.get(fromPosition);
+                home_Rv_Data d2= home_rv_dataArrayList.get(toPosition);
+
+                d1.setId(id2);
+                d2.setId(id1);
+
+                notesDataBase.noteDao().Update(d1);
+                notesDataBase.noteDao().Update(d2);
                 return false;
             }
 

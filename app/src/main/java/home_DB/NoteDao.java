@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -22,5 +23,10 @@ public interface NoteDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void Insert(home_Rv_Data home_rv_data);
+
+    @Update
+    void Update(home_Rv_Data home_rv_data);
+
+
 
 }

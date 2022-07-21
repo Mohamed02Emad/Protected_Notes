@@ -143,8 +143,21 @@ public class to_do extends Fragment implements ListInterface {
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 int fromPosition = viewHolder.getAdapterPosition();
                 int toPosition = target.getAdapterPosition();
+
                 Collections.swap(arrayList, fromPosition, toPosition);
                 recyclerView.getAdapter().notifyItemMoved(fromPosition, toPosition);
+
+                int id1=arrayList.get(fromPosition).getId();
+                int id2=arrayList.get(toPosition).getId();
+
+                ToDoData d1= arrayList.get(fromPosition);
+                ToDoData d2= arrayList.get(toPosition);
+
+                d1.setId(id2);
+                d2.setId(id1);
+
+                todoDB.todoDao().Update(d1);
+                todoDB.todoDao().Update(d2);
                 return false;
             }
 
@@ -155,6 +168,7 @@ public class to_do extends Fragment implements ListInterface {
                 resetdb();
             }
         }).attachToRecyclerView(recyclerView);
+        resetdb();
     }
 
     @Override
