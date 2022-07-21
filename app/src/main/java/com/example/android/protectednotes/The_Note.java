@@ -28,7 +28,7 @@ public class The_Note extends AppCompatActivity {
     AppCompatButton button;
     String title,text;
     int id=1,position;
-    TextView Title;
+    EditText Title;
     EditText Text;
     NotesDataBase notesDataBase;
 
@@ -60,9 +60,10 @@ public class The_Note extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(MainActivity.SoundON)mediaPlayer.start();
-                String newContent = Text.getText().toString();
-                Replace(id,newContent,title);
 
+                String newContent = Text.getText().toString();
+                String newTitle =Title.getText().toString();
+                Replace(id,newContent,newTitle);
           //      Toast.makeText(The_Note.this, ""+position, Toast.LENGTH_SHORT).show();
                 onBackPressed();
 
