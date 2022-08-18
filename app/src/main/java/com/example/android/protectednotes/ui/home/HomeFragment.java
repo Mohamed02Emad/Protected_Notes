@@ -19,6 +19,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.room.Database;
@@ -82,11 +83,14 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
         // RV
         home_RV = view.findViewById(R.id.RV);
         Adapter = new home_Rv_Adapter(home_rv_dataArrayList, this);
-        home_RV.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        home_RV.setLayoutManager( new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
+        // new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         home_RV.setAdapter(Adapter);
         home_rv_dataArrayList.clear();
         home_rv_dataArrayList.addAll(notesDataBase.noteDao().getAll());
         Adapter.notifyDataSetChanged();
+
+
         //button
         button = view.findViewById(R.id.AddNoteButtonHome);
         button.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +123,7 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
         });
 
         if (MainActivity.resetDB) resetdb();
-       // Drag();
+        Drag();
         MainActivity.resetDB = false;
     }
 
@@ -159,7 +163,7 @@ public class HomeFragment extends Fragment implements home_Rv_interface {
     }
 
     private void Drag() {
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN | ItemTouchHelper.UP, 0) {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN | ItemTouchHelper.UP|ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT, 0) {
 
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {

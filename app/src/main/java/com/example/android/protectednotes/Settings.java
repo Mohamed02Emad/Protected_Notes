@@ -31,35 +31,12 @@ public class Settings extends Fragment {
     //TODO: Make Language feature
     //TODO: DO any thing to "rate us"
     SharedPreferences Settings_Modes,LoginDataPref;
-    public   Switch SoundMode,sw,screenOn,RemoveAds,Notifications;
+    public   Switch SoundMode,sw,screenOn,RemoveAds,Notifications,UsePassword;
     MediaPlayer ClickSound;
-
-
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    private String mParam1;
-    private String mParam2;
-
-    public Settings() {
-        // Required empty public constructor
-    }
-
-    public static Settings newInstance(String param1, String param2) {
-        Settings fragment = new Settings();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -76,10 +53,9 @@ public class Settings extends Fragment {
         sw =view.findViewById(R.id.DarkMode);
         screenOn = view.findViewById(R.id.ScreenOn_Switch);
         SoundMode=view.findViewById(R.id.Sound_Switch);
-        RemoveAds=view.findViewById(R.id.RemoveAds_Switch);
-        Notifications=view.findViewById(R.id.Notifications_Switch);
-
-        SettingsSetUp();
+//        RemoveAds=view.findViewById(R.id.RemoveAds_Switch);
+//        Notifications=view.findViewById(R.id.Notifications_Switch);
+        UsePassword=view.findViewById(R.id.UsePasswordSwitch);
 
         Settings_Modes=getActivity().getSharedPreferences("SettingsModes", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=Settings_Modes.edit();
@@ -87,43 +63,70 @@ public class Settings extends Fragment {
         LoginDataPref=getActivity().getSharedPreferences("logindatapred", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor2=LoginDataPref.edit();
 
-        //Remove Ads
-        RemoveAds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        SettingsSetUp();
+        //UsePAssword
+        UsePassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(MainActivity.SoundON) ClickSound.start();
 
-                if(b){
-                    editor.putBoolean("REMOVEads",true);
-                    RemoveAds.setChecked(true);
-                    MainActivity.Remove=true;
-                }else{
-                    editor.putBoolean("REMOVEads",false);
-                    RemoveAds.setChecked(false);
-                    MainActivity.Remove=false;
+                if (b){
+                    Toast.makeText(getActivity(),"Password is 0000",Toast.LENGTH_LONG).show();
+                    editor2.putString("Password","0000");
+                    editor2.putBoolean("UsePassword",true);
+                    editor2.commit();
+
+                    UsePassword.setChecked(true);
+                    MainActivity.usePassword=true;
+                }else
+                {
+
+                    editor2.putBoolean("UsePassword",false);
+                    editor2.commit();
+                    UsePassword.setChecked(false);
+                    MainActivity.usePassword=false;
                 }
-                editor.commit();
             }
         });
-        //notifications
-        Notifications.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(MainActivity.SoundON) ClickSound.start();
 
-                if(b){
-                    editor.putBoolean("Notification",true);
-                    Notifications.setChecked(true);
-                    MainActivity.NotificationsOn=true;
-
-                }else{
-                    editor.putBoolean("Notification",false);
-                    Notifications.setChecked(false);
-                    MainActivity.NotificationsOn=false;
-                }
-                editor.commit();
-            }
-        });
+//        //Remove Ads
+//        RemoveAds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(MainActivity.SoundON) ClickSound.start();
+//
+//                if(b){
+//                    editor.putBoolean("REMOVEads",true);
+//                    RemoveAds.setChecked(true);
+//                    MainActivity.Remove=true;
+//                }else{
+//                    editor.putBoolean("REMOVEads",false);
+//                    RemoveAds.setChecked(false);
+//                    MainActivity.Remove=false;
+//                }
+//                editor.commit();
+//            }
+//        });
+//        //notifications
+//        Notifications.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(MainActivity.SoundON) ClickSound.start();
+//
+//                if(b){
+//                    editor.putBoolean("Notification",true);
+//                    Notifications.setChecked(true);
+//                    MainActivity.NotificationsOn=true;
+//
+//                }else{
+//                    editor.putBoolean("Notification",false);
+//                    Notifications.setChecked(false);
+//                    MainActivity.NotificationsOn=false;
+//                }
+//                editor.commit();
+//            }
+//        });
 
         //Dark Mode
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -300,11 +303,17 @@ public class Settings extends Fragment {
 
 
     public  void SettingsSetUp(){
-        //dark mode
+        boolean a =LoginDataPref.getBoolean("UsePassword",true);
+        if(a){
+            UsePassword.setChecked(true);
+        }else{
+            UsePassword.setChecked(false);
+        }
         if(MainActivity.DarkMode) {
             sw.setChecked(true);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
+        //dark mode
         else {
             sw.setChecked(false);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -326,22 +335,20 @@ public class Settings extends Fragment {
             screenOn.setChecked(false);
             getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
-        //Remove Ads
-        if(MainActivity.removeAds) {
-            RemoveAds.setChecked(true);
-            MainActivity.Remove=true;
-        }
-        else{
-            RemoveAds.setChecked(false);
-            MainActivity.Remove=false;
-        }
-       //Notifications
-        if(MainActivity.notifications) {
-            Notifications.setChecked(true);
-        }else{
-            Notifications.setChecked(false);
-        }
-
-    }
-
+//        //Remove Ads
+//        if(MainActivity.removeAds) {
+//            RemoveAds.setChecked(true);
+//            MainActivity.Remove=true;
+//        }
+//        else{
+//            RemoveAds.setChecked(false);
+//            MainActivity.Remove=false;
+//        }
+//       //Notifications
+//        if(MainActivity.notifications) {
+//            Notifications.setChecked(true);
+//        }else{
+//            Notifications.setChecked(false);
+//        }
+      }
 }

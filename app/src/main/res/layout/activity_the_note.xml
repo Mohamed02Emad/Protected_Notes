@@ -34,7 +34,19 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Title" />
 
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:fillViewport="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/Note_Title"
+    >
+
     <EditText
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="insideOverlay"
+        android:inputType="textMultiLine"
         android:id="@+id/Edit_Text_Note"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -42,7 +54,11 @@
         android:paddingStart="8dp"
         android:textColor="?attr/textTheme"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Note_Title"
-        tools:text="kasjfkabgkjbdsjlBGLSKDbgvbk" />
+        tools:text="kasjfkabgkjbdsjlBGLSKDbgvbk"
+        android:background="@null"
+        />
+
+
+</androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

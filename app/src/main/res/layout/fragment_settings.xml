@@ -6,31 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Settings">
 
-    <EditText
-        android:id="@+id/editTextSettings"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:hint="@string/search_in_settings"
-        android:textColor="?attr/textTheme"
-        android:textColorHint="#CBB2AEAE"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toRightOf="@id/search_bar_Settings_icon"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:padding="4dp"
-        android:id="@+id/search_bar_Settings_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:src="@drawable/ic_baseline_search2_24"
-        app:layout_constraintBottom_toBottomOf="@id/editTextSettings"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@id/editTextSettings" />
 
     <LinearLayout
         android:id="@+id/Settings_LinearLayout"
@@ -41,7 +17,7 @@
         android:layout_marginEnd="2dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextSettings">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,6 +38,37 @@
 
             <Switch
                 android:id="@+id/DarkMode"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:padding="6dp"
+                android:showText="false"
+                android:thumb="@drawable/thumb"
+                android:track="@drawable/track"
+                tools:checked="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="8"
+                android:padding="4dp"
+                android:text="Use Password"
+                android:textColor="?attr/textTheme"
+                android:textSize="14sp" />
+
+            <Switch
+                android:id="@+id/UsePasswordSwitch"
                 android:layout_width="55dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -100,35 +107,35 @@
             android:background="?attr/line" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
 
-            <TextView
-                android:layout_gravity="center_vertical"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="80dp"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="8"
-                android:padding="4dp"
-                android:text="@string/remove_ads"
-                android:textColor="?attr/textTheme"
-                android:textSize="14sp" />
+<!--            <TextView-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="80dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_weight="8"-->
+<!--                android:padding="4dp"-->
+<!--                android:text="@string/remove_ads"-->
+<!--                android:textColor="?attr/textTheme"-->
+<!--                android:textSize="14sp" />-->
 
-            <Switch
-                android:theme="@style/Platform.MaterialComponents"
-                android:id="@+id/RemoveAds_Switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:padding="6dp"
-                android:showText="false"
-                tools:checked="false"
-                android:thumb="@drawable/thumbbb"
-                android:track="@drawable/track2"/>
-        </LinearLayout>
+<!--            <Switch-->
+<!--                android:theme="@style/Platform.MaterialComponents"-->
+<!--                android:id="@+id/RemoveAds_Switch"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:padding="6dp"-->
+<!--                android:showText="false"-->
+<!--                tools:checked="false"-->
+<!--                android:thumb="@drawable/thumbbb"-->
+<!--                android:track="@drawable/track2"/>-->
+<!--        </LinearLayout>-->
 
         <View
             android:layout_width="match_parent"
@@ -139,35 +146,35 @@
             android:background="?attr/line" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="80dp"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="8"
-                android:padding="4dp"
-                android:text="@string/notifications"
-                android:textColor="?attr/textTheme"
-                android:textSize="14sp" />
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginEnd="80dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_weight="8"-->
+<!--                android:padding="4dp"-->
+<!--                android:text="@string/notifications"-->
+<!--                android:textColor="?attr/textTheme"-->
+<!--                android:textSize="14sp" />-->
 
-            <Switch
-                android:id="@+id/Notifications_Switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:padding="6dp"
-                android:showText="false"
-                android:theme="@style/Platform.MaterialComponents"
-                tools:checked="false"
-                android:thumb="@drawable/thumbbb"
-                android:track="@drawable/track2"/>
-        </LinearLayout>
+<!--            <Switch-->
+<!--                android:id="@+id/Notifications_Switch"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:padding="6dp"-->
+<!--                android:showText="false"-->
+<!--                android:theme="@style/Platform.MaterialComponents"-->
+<!--                tools:checked="false"-->
+<!--                android:thumb="@drawable/thumbbb"-->
+<!--                android:track="@drawable/track2"/>-->
+<!--        </LinearLayout>-->
 
         <View
             android:layout_width="match_parent"

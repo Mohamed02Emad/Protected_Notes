@@ -4,10 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
@@ -16,25 +13,30 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.android.protectednotes.databinding.ActivityMainBinding;
-
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     public static boolean resetDB;
+    public static boolean usePassword=true;
     public static boolean SoundON =true;
     public static boolean  NotificationsOn=true;
     public static boolean  Remove=false;
-    public static Boolean DarkMode,Sounds,Screen,notifications,removeAds;
+    public static boolean DarkMode,Sounds,Screen,notifications,removeAds;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LoadLang();
+
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
@@ -53,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         setUpSettings();
         setUp2();
     }
+
+
+
 
     public void LoadLang(){
      SharedPreferences pref=getSharedPreferences("Language",MODE_PRIVATE);
@@ -76,7 +81,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUp2() {
+
         if(MainActivity.DarkMode) {
+
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
         else {
@@ -107,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         } else{
             MainActivity.Remove=false;
         }
+
     }
 
     public void setUpSettings() {
@@ -116,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
         Sounds=sp.getBoolean("Sounds",true);
         notifications=sp.getBoolean("Notification",true);
         removeAds=sp.getBoolean("REMOVEads",false);
+        usePassword=sp.getBoolean("UsePassword",true);
 
     }
 

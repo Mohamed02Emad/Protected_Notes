@@ -18,10 +18,12 @@ import java.util.Locale;
 
 public class login extends AppCompatActivity {
 
+    boolean PasswordAllowed ;
     Button button;
     EditText editText;
     boolean DarkMode;
     SharedPreferences shared;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +33,23 @@ public class login extends AppCompatActivity {
         editText=findViewById(R.id.password_Txt);
         SharedPreferences sp=getSharedPreferences("SettingsModes",Context.MODE_PRIVATE);
         DarkMode=sp.getBoolean("Dark",true);
+
+        SharedPreferences pref=getSharedPreferences("logindatapred",MODE_PRIVATE);
+        PasswordAllowed=pref.getBoolean("UsePassword",true);
+        MainActivity.usePassword=PasswordAllowed;
+       // Toast.makeText(getApplicationContext(),PasswordAllowed+"",Toast.LENGTH_LONG).show();
+
+
         if(DarkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
         else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        if(PasswordAllowed==false){
+            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+            finish();
         }
 //        shared=getSharedPreferences("LoginData", Context.MODE_PRIVATE);
 //        SharedPreferences.Editor editor=shared.edit();
@@ -45,7 +59,6 @@ public class login extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences pref=getSharedPreferences("logindatapred",MODE_PRIVATE);
                 String password=pref.getString("Password","0000");
                 if(editText.getText().toString().equals(password)){
                     Intent intent=new Intent(getApplicationContext(),MainActivity.class);
