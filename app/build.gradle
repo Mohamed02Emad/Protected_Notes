@@ -32,6 +32,7 @@ android {
 
 dependencies {
     implementation 'androidx.databinding:baseLibrary:3.2.0-alpha11'
+    implementation 'com.google.android.gms:play-services-ads-lite:21.1.0'
     def room_version = "2.4.2"
 
     implementation "androidx.room:room-runtime:$room_version"
@@ -56,4 +57,8 @@ dependencies {
 
     // optional - RxJava2 support for Room
     implementation "androidx.room:room-rxjava2:$room_version"
+
+    //ads
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
+
 }

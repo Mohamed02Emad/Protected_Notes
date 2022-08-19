@@ -10,11 +10,19 @@
             android:title="@string/protected_notes" />
         <item
             android:id="@+id/to_do"
-            android:icon="@drawable/ic_baseline_to_do_24"
+            android:icon="@drawable/ic_baseline_access_time_24"
             android:title="@string/to_do_list" />
-    </group>
+
+        <item
+            android:id="@+id/done"
+            android:icon="@drawable/ic_baseline_done_outline_24"
+            android:title="@string/done_list"
+            />
+
     <item
         android:id="@+id/nav_Settings"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/settings" />
+
+    </group>
 </menu>

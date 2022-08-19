@@ -44,4 +44,5 @@
     <string name="Delete">"Delete "</string>
     <string name="yes">YES</string>
     <string name="question">\?</string>
+    <string name="done_list">Done List</string>
 </resources>

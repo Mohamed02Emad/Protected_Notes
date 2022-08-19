@@ -35,4 +35,5 @@
     <string name="Delete">احذف ؟</string>
     <string name="yes">نعم</string>
     <string name="question">؟</string>
+    <string name="done_list">قائمة تم</string>
 </resources>

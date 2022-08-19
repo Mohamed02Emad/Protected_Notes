@@ -39,4 +39,5 @@ public class ToDoData {
     public void setCheckBoxState(boolean checkBoxState) {
         CheckBoxState = checkBoxState;
     }
+
 }

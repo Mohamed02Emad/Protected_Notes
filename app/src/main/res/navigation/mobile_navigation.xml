@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
@@ -21,4 +21,11 @@
         android:name="com.example.android.protectednotes.to_do"
         android:label="@string/to_do_list"
         tools:layout="@layout/fragment_to_do" />
+    <fragment
+        android:id="@+id/done"
+        android:name="DoneDB.Done"
+        android:label="@string/done_list"
+        tools:layout="@layout/fragment_done" />
+
+
 </navigation>

@@ -9,7 +9,6 @@ import androidx.room.RoomDatabase;
 import Todo_RV.ToDoData;
 
 
-
 @Database(entities = ToDoData.class,version = 1)
 abstract public class todoDB extends RoomDatabase {
     private static todoDB instance;

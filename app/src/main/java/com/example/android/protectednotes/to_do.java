@@ -3,6 +3,11 @@ package com.example.android.protectednotes;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,38 +17,26 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import android.text.InputType;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+import DoneDB.DoneDB;
+import DoneDB.DoneData;
 import Todo_RV.ListInterface;
 import Todo_RV.ToDoAdapter;
 import Todo_RV.ToDoData;
-import home_DB.NotesDataBase;
 import todoDB.todoDB;
-
 public class to_do extends Fragment implements ListInterface {
 
     ArrayList<ToDoData> arrayList=new ArrayList<>();
     RecyclerView recyclerView;
     ToDoAdapter adapter;
     todoDB todoDB;
+    DoneDB doneDB;
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
-    }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -142,6 +135,11 @@ public class to_do extends Fragment implements ListInterface {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position =viewHolder.getAdapterPosition();
+                if (arrayList.get(position).isCheckBoxState()){
+                   doneDB.doneDao().Insert(new DoneData(arrayList.get(position).getText(),true));
+                }
+
 
                 todoDB.todoDao().Delete(adapter.ReturnData(viewHolder.getAdapterPosition()));
                 resetdb();
@@ -157,6 +155,11 @@ public class to_do extends Fragment implements ListInterface {
         setUpRv();
 
         todoDB = Room.databaseBuilder(getActivity().getApplicationContext(), todoDB.class,"list")
+                .allowMainThreadQueries()
+                .build();
+
+
+        doneDB = Room.databaseBuilder(getActivity().getApplicationContext(), DoneDB.class,"list2")
                 .allowMainThreadQueries()
                 .build();
 
