@@ -1,15 +1,14 @@
 package home_RV;
 
 import android.media.MediaPlayer;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android.protectednotes.MainActivity;
-import com.example.android.protectednotes.R;
+import com.kono_protected2.android.protectednotes.R;
+import com.kono_protected2.android.protectednotes.MainActivity;
 
 public class home_Rv_VH extends RecyclerView.ViewHolder {
     TextView outer;

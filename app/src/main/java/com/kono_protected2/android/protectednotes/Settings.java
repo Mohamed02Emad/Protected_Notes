@@ -1,6 +1,5 @@
-package com.example.android.protectednotes;
+package com.kono_protected2.android.protectednotes;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,19 +24,24 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.Locale;
 
 public class Settings extends Fragment {
-    //TODO: Make Language feature
-    //TODO: DO any thing to "rate us"
+
+    private AdView mAdView;
+
+
+
     SharedPreferences Settings_Modes,LoginDataPref;
     public   Switch SoundMode,sw,screenOn,RemoveAds,Notifications,UsePassword;
     MediaPlayer ClickSound;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,6 +52,23 @@ public class Settings extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = view.findViewById(R.id.adView3);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+
+
+
+
         ClickSound = MediaPlayer.create(getActivity(),R.raw.click);
 
         sw =view.findViewById(R.id.DarkMode);
@@ -227,11 +248,17 @@ public class Settings extends Fragment {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     String ToReturn = EditTxtName.getText().toString();
-                                   //TODO update shared pref
-                                     editor2.putString("Password",ToReturn);
-                                     editor2.commit();
-                                    Toast.makeText(getActivity(), R.string.PasswordHasBeenReset, Toast.LENGTH_SHORT).show();
-                                    dialogInterface.cancel();
+                                    if(ToReturn!=""&&ToReturn!=null)
+                                    {
+                                        editor2.putString("Password",ToReturn);
+                                        editor2.commit();
+                                        Toast.makeText(getActivity(), R.string.PasswordHasBeenReset, Toast.LENGTH_SHORT).show();
+                                        dialogInterface.cancel();
+                                    }
+                                    else{
+                                        Toast.makeText(getActivity(), R.string.empty_password,Toast.LENGTH_SHORT).show();
+                                    }
+
                                 }
                             });
 

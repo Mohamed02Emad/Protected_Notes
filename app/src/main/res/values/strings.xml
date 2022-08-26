@@ -45,4 +45,6 @@
     <string name="yes">YES</string>
     <string name="question">\?</string>
     <string name="done_list">Done List</string>
+    <string name="use_password">Use Password</string>
+    <string name="empty_password">Password is empty</string>
 </resources>

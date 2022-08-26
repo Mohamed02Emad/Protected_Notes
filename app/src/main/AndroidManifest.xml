@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.android.protectednotes">
+    package="com.kono_protected2.android.protectednotes">
 
     <application
         android:allowBackup="true"
@@ -16,23 +16,23 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-4031659564383807~4229681908ca-app-pub-xxxx"/>
+            android:value="ca-app-pub-4031659564383807~4229681908"/>
 
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.kono_protected2.android.protectednotes.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.ProtectedNotes.NoActionBar"/>
         <activity
-            android:name=".The_Note"
+            android:name="com.kono_protected2.android.protectednotes.The_Note"
             android:exported="false"
             android:label="@string/protec"/>
-        <activity android:name=".login"
+        <activity android:name="com.kono_protected2.android.protectednotes.login"
                   android:exported="false"
             android:label="@string/protec"
             />
         <activity
-            android:name=".ui.home.SplashScreen"
+            android:name="com.kono_protected2.android.protectednotes.ui.home.SplashScreen"
             android:exported="true"
             android:label="@string/protec"
             android:theme="@style/Splash_Screen">

@@ -1,4 +1,4 @@
-package com.example.android.protectednotes;
+package com.kono_protected2.android.protectednotes;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,12 +6,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.WindowManager;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import com.google.android.material.navigation.NavigationView;
+import com.kono_protected2.android.protectednotes.databinding.ActivityMainBinding;
+
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -19,13 +17,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.android.protectednotes.databinding.ActivityMainBinding;
+
 import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private AdView mAdView;
 
 
     public static boolean resetDB;
@@ -48,15 +45,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
 
 

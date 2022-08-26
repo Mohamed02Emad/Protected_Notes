@@ -1,24 +1,16 @@
-package com.example.android.protectednotes;
+package com.kono_protected2.android.protectednotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.room.Database;
 import androidx.room.Room;
 
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
-import com.example.android.protectednotes.ui.home.HomeFragment;
 
-import org.w3c.dom.Text;
 
-import home_DB.NoteDao;
 import home_DB.NotesDataBase;
 import home_RV.home_Rv_Data;
 

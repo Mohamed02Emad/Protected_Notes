@@ -1,4 +1,4 @@
-package com.example.android.protectednotes;
+package com.kono_protected2.android.protectednotes;
 
 import android.content.Context;
 

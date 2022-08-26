@@ -36,4 +36,6 @@
     <string name="yes">نعم</string>
     <string name="question">؟</string>
     <string name="done_list">قائمة تم</string>
+    <string name="use_password">استخدم كلمة المرور</string>
+    <string name="empty_password">كلمة مرور فارغة</string>
 </resources>

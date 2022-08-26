@@ -1,51 +1,38 @@
-package com.example.android.protectednotes.ui.home;
+package com.kono_protected2.android.protectednotes.ui.home;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import androidx.room.Database;
 import androidx.room.Room;
 
-import com.example.android.protectednotes.MainActivity;
-import com.example.android.protectednotes.R;
-import com.example.android.protectednotes.The_Note;
-import com.example.android.protectednotes.databinding.FragmentHomeBinding;
+import com.kono_protected2.android.protectednotes.R;
+
+import com.kono_protected2.android.protectednotes.MainActivity;
+import com.kono_protected2.android.protectednotes.The_Note;
 import com.google.android.material.snackbar.Snackbar;
+import com.kono_protected2.android.protectednotes.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
-import Todo_RV.ToDoData;
-import home_DB.NoteDao;
 import home_DB.NotesDataBase;
 import home_RV.home_Rv_Adapter;
 import home_RV.home_Rv_Data;
-import home_RV.home_Rv_VH;
 import home_RV.home_Rv_interface;
-import io.reactivex.CompletableObserver;
-import io.reactivex.Scheduler;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class HomeFragment extends Fragment implements home_Rv_interface {
 

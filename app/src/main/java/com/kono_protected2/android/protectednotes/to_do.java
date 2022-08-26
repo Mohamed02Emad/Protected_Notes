@@ -1,4 +1,4 @@
-package com.example.android.protectednotes;
+package com.kono_protected2.android.protectednotes;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,6 +17,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -27,6 +35,9 @@ import Todo_RV.ToDoAdapter;
 import Todo_RV.ToDoData;
 import todoDB.todoDB;
 public class to_do extends Fragment implements ListInterface {
+
+      private AdView mAdView;
+
 
     ArrayList<ToDoData> arrayList=new ArrayList<>();
     RecyclerView recyclerView;
@@ -151,6 +162,24 @@ public class to_do extends Fragment implements ListInterface {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+
+
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+
+
+
+
         recyclerView=view.findViewById(R.id.TodoRv);
         setUpRv();
 

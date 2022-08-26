@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android.protectednotes.MainActivity;
-import com.example.android.protectednotes.R;
+import com.kono_protected2.android.protectednotes.R;
+import com.kono_protected2.android.protectednotes.MainActivity;
 
 public class ToDoVH extends RecyclerView.ViewHolder {
     TextView textView;

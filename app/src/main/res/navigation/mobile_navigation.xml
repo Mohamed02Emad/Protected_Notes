@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.android.protectednotes.ui.home.HomeFragment"
+        android:name="com.kono_protected2.android.protectednotes.ui.home.HomeFragment"
         android:label="@string/protected_notes"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_Settings"
-        android:name="com.example.android.protectednotes.Settings"
+        android:name="com.kono_protected2.android.protectednotes.Settings"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/to_do"
-        android:name="com.example.android.protectednotes.to_do"
+        android:name="com.kono_protected2.android.protectednotes.to_do"
         android:label="@string/to_do_list"
         tools:layout="@layout/fragment_to_do" />
     <fragment

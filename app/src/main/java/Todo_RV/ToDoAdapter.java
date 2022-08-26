@@ -6,12 +6,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android.protectednotes.R;
+import com.kono_protected2.android.protectednotes.R;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import home_RV.home_Rv_Data;
 
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoVH>  {
     ArrayList<ToDoData> arrayList;
